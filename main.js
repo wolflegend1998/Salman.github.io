@@ -1,5 +1,4 @@
 import * as THREE from 'three';
-import { GLTFLoader } from 'three/addons/loaders/GLTFLoader.js';
 // 1. Scene setup
 const scene = new THREE.Scene();
 const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
@@ -23,22 +22,7 @@ const directionalLight = new THREE.DirectionalLight(0xf5d998, 1); // A warm, yel
 directionalLight.position.set(5, 5, 5);
 scene.add(directionalLight);
 
-const loader = new GLTFLoader();
 
-loader.load(
-    'path/to/your/model.glb',
-    function (gltf) {
-        scene.add(gltf.scene);
-    },
-    // Optional: Progress callback
-    function (xhr) {
-        console.log((xhr.loaded / xhr.total * 100) + '% loaded');
-    },
-    // Optional: Error callback
-    function (error) {
-        console.log('An error happened', error);
-    }
-);
 
 // 4. Position the camera
 camera.position.z = 5;
